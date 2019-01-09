@@ -1,0 +1,11 @@
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\eBay.exe.config
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\obj\Debug\eBay.csprojResolveAssemblyReference.cache
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\eBay.exe
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\eBay.pdb
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\eBay.Service.dll
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\eBay.Service.xml
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\Newtonsoft.Json.pdb
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\obj\Debug\eBay.exe
+C:\Users\Shakkollc\Desktop\Pedro\Pedro 2\pedro\e-commerce-api\eBay\eBay\obj\Debug\eBay.pdb
