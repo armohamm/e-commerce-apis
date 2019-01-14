@@ -17,7 +17,12 @@ namespace eBay
             Console.Write("Executing eBay Get Orders " + DateTime.Now + " ...");
             Console.WriteLine("");
             Console.WriteLine(eBay.GetOrders());
+            Console.WriteLine("");
 
+            Console.Write("Executing eBay Get Inventory " + DateTime.Now + " ...");
+            Console.WriteLine("");
+            Console.WriteLine(eBay.GetInventory());
+            Console.WriteLine("");
         }
     }
 }

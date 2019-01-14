@@ -14,17 +14,17 @@ namespace eBay.Services
 {
     public class EbayOperationsService : IEbayOperations
     {
+        IEbay eBayCall = new EbayService();
+
         public string GetOrders()
         {
             try
             {
-                IEbay eBayCall = new EbayService();
-
                 ApiContext context = eBayCall.GetContext();
 
                 GetOrdersCall getOrders = new GetOrdersCall(context);
 
-                populateGetOrders(getOrders);
+                PopulateGetOrders(getOrders);
 
                 getOrders.Execute();
 
@@ -48,13 +48,13 @@ namespace eBay.Services
                 }
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return "There was an exception. " + ex.Message;
             }
         }
 
-        public static void populateGetOrders(GetOrdersCall getOrders)
+        public static void PopulateGetOrders(GetOrdersCall getOrders)
         {
             DateTime CreateTimeFromPrev, CreateTimeFrom, CreateTimeTo;
 
@@ -73,6 +73,61 @@ namespace eBay.Services
             CreateTimeFrom = CreateTimeFromPrev.Subtract(ts2);
             getOrders.CreateTimeFrom = CreateTimeFrom.AddDays(-7);
             getOrders.CreateTimeTo = CreateTimeTo;
+        }
+
+        public string GetInventory()
+        {
+            ApiContext context = eBayCall.GetContext();
+
+            try
+            {
+
+                GetSellerListCall oGetSellerListCall = new GetSellerListCall(context);
+
+                // use GranularityLevel of Fine
+                oGetSellerListCall.GranularityLevel = GranularityLevelCodeType.Fine;
+
+                // get the first page, 200 items per page
+                PaginationType oPagination = new PaginationType();
+                oPagination.EntriesPerPage = 200;
+                oPagination.EntriesPerPageSpecified = true;
+                oPagination.PageNumber = 1;
+                oPagination.PageNumberSpecified = true;
+                oGetSellerListCall.Pagination = oPagination;
+
+                // ask for all items that are ending in the future (active items)
+                oGetSellerListCall.EndTimeFilter = new TimeFilter(DateTime.Now, DateTime.Now.AddMonths(1));
+
+                // return items that end soonest first
+                oGetSellerListCall.Sort = 2;
+
+                ItemTypeCollection oItems = oGetSellerListCall.GetSellerList();
+
+                if (oItems != null)
+                {
+                    if (oItems.Count > 0)
+                    {
+                        return JsonConvert.SerializeObject(oItems, Formatting.Indented);
+                    }
+                    else
+                    {
+                        return "No active inventory.";
+                    }
+                }
+                else
+                {
+                    return "Inventory is null!";
+                }
+
+            }
+            catch (ApiException oApiEx)
+            {
+                return oApiEx.Message;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

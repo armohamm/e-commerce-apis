@@ -10,5 +10,8 @@ namespace eBay.Interface
     {
         // will return a JSON with all the orders for that seller
         string GetOrders();
+
+        // will return a JSON with all the inventory for that seller
+        string GetInventory();
     }
 }
