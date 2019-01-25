@@ -129,5 +129,44 @@ namespace eBay.Services
                 return ex.Message;
             }
         }
+
+        public string FulfillOrder(string OrderLineItemID, string ItemId, string TransactionId, string Carrier, string Tracking)
+        {
+            try
+            {
+                ApiContext context = eBayCall.GetContext();
+
+                CompleteSaleCall apicall = new CompleteSaleCall(context);
+
+                //Either ItemID-TransactionID or OrderLineItemID or OrderID is required. If item is part of an order, specify OrderID.
+                apicall.OrderLineItemID = OrderLineItemID;
+                apicall.ItemID = ItemId;
+                apicall.TransactionID = TransactionId;
+
+                apicall.Shipped = true;
+                apicall.Shipment = new ShipmentType();
+                apicall.Shipment.ShipmentTrackingDetails = new ShipmentTrackingDetailsTypeCollection();
+
+                ShipmentTrackingDetailsType shpmnt = new ShipmentTrackingDetailsType();
+                shpmnt.ShipmentTrackingNumber = Tracking;
+                shpmnt.ShippingCarrierUsed = Carrier;
+
+                apicall.Shipment.ShipmentTrackingDetails.Add(shpmnt);
+
+                // Specify time in GMT. This is an optional field.
+                // If you don't specify a value for the ShippedTime, it will be defaulted to the time at which the call was made
+                apicall.Shipment.ShippedTime = DateTime.Now.ToUniversalTime();
+
+                // call the Execute method
+                apicall.Execute();
+
+                return JsonConvert.SerializeObject(apicall.ApiResponse);
+                
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

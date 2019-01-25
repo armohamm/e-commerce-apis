@@ -13,5 +13,8 @@ namespace eBay.Interface
 
         // will return a JSON with all the inventory for that seller
         string GetInventory();
+
+        // will update the orders given the tracking number
+        string FulfillOrder(string OrderLineItemID, string ItemId, string TransactionId, string Carrier, string Tracking);
     }
 }

@@ -23,6 +23,11 @@ namespace eBay
             Console.WriteLine("");
             Console.WriteLine(eBay.GetInventory());
             Console.WriteLine("");
+
+            Console.Write("Executing eBay Fulfill Order " + DateTime.Now + " ...");
+            Console.WriteLine("");
+            Console.WriteLine(eBay.FulfillOrder("order_id", "item_id", "transaction_id", "carrier", "tracking_number"));
+            Console.WriteLine("");
         }
     }
 }
