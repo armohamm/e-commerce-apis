@@ -14,9 +14,14 @@ namespace wish
         {
             IWishOperations wish = new WishOperationsService();
 
-            Console.Write("Executing wish Get Orders " + DateTime.Now + " ...");
+            Console.Write("Getting Wish Orders at " + DateTime.Now + " ...");
             Console.WriteLine("");
-            Console.WriteLine(wish.GetOrders());
+            Console.WriteLine(wish.ExecuteAction("Order"));
+            Console.WriteLine("");
+
+            Console.Write("Getting Wish Inventory at " + DateTime.Now + " ...");
+            Console.WriteLine("");
+            Console.WriteLine(wish.ExecuteAction("Inventory"));
             Console.WriteLine("");
         }
     }

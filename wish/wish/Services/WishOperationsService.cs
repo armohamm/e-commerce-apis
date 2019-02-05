@@ -14,9 +14,21 @@ namespace wish.Services
     {
         private string ACCESS_TOKEN = ConfigurationSettings.AppSettings.Get("ACCESS_TOKEN");
 
-        public string GetOrders()
+        public string ExecuteAction(string Method)
         {
-            string url = string.Format("https://merchant.wish.com/api/v2/order/get-fulfill?start=0&limit=100&access_token={0}", ACCESS_TOKEN);
+            string url = "";            
+
+            switch (Method)
+            {
+                case "Order":
+                    url = string.Format("https://merchant.wish.com/api/v2/order/get-fulfill?start=0&limit=100&access_token={0}", ACCESS_TOKEN);
+                    break;
+                case "Inventory":
+                    url = string.Format("https://merchant.wish.com/api/v2/product/multi-get?limit=100&access_token={0}", ACCESS_TOKEN);
+                    break;
+                default:
+                    throw new Exception("Method not implemented");
+            }
 
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.Method = "GET";

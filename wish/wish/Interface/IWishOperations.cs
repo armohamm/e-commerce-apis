@@ -8,7 +8,7 @@ namespace wish.Interface
 {
     interface IWishOperations
     {
-        // will return a JSON with all the orders for that seller
-        string GetOrders();
+        // will return a JSON with all the orders/products for that seller
+        string ExecuteAction(string Method);
     }
 }
