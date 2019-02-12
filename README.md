@@ -11,6 +11,10 @@ The following API's and operations will be explored:
     
 2. wish
     - Get Orders
+    - Get Inventory
+    
+3. amazon
+    - Get Orders
 
 ## Author
 * [Pedro Henrique Arthur](https://github.com/pedrohma95/), 2019.
