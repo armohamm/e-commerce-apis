@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{29760A63-3D0C-41D0-BAAE-5A0FE7448A2C}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>amazon</RootNamespace>
+    <AssemblyName>amazon</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\OrderInterface.cs" />
+    <Compile Include="Mock\Orders\MarketplaceWebServiceOrdersMock.cs" />
+    <Compile Include="Model\AmazonAPI.cs" />
+    <Compile Include="Model\Orders\Address.cs" />
+    <Compile Include="Model\Orders\BuyerCustomizedInfoDetail.cs" />
+    <Compile Include="Model\Orders\BuyerTaxInfo.cs" />
+    <Compile Include="Model\Orders\GetOrderRequest.cs" />
+    <Compile Include="Model\Orders\GetOrderResponse.cs" />
+    <Compile Include="Model\Orders\GetOrderResult.cs" />
+    <Compile Include="Model\Orders\GetServiceStatusRequest.cs" />
+    <Compile Include="Model\Orders\GetServiceStatusResponse.cs" />
+    <Compile Include="Model\Orders\GetServiceStatusResult.cs" />
+    <Compile Include="Model\Orders\IMWSResponse.cs" />
+    <Compile Include="Model\Orders\InvoiceData.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsByNextTokenRequest.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsByNextTokenResponse.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsByNextTokenResult.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsRequest.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsResponse.cs" />
+    <Compile Include="Model\Orders\ListOrderItemsResult.cs" />
+    <Compile Include="Model\Orders\ListOrdersByNextTokenRequest.cs" />
+    <Compile Include="Model\Orders\ListOrdersByNextTokenResponse.cs" />
+    <Compile Include="Model\Orders\ListOrdersByNextTokenResult.cs" />
+    <Compile Include="Model\Orders\ListOrdersRequest.cs" />
+    <Compile Include="Model\Orders\ListOrdersResponse.cs" />
+    <Compile Include="Model\Orders\ListOrdersResult.cs" />
+    <Compile Include="Model\Orders\Message.cs" />
+    <Compile Include="Model\Orders\Money.cs" />
+    <Compile Include="Model\Orders\Order.cs" />
+    <Compile Include="Model\Orders\OrderItem.cs" />
+    <Compile Include="Model\Orders\PaymentExecutionDetailItem.cs" />
+    <Compile Include="Model\Orders\PointsGrantedDetail.cs" />
+    <Compile Include="Model\Orders\ProductInfoDetail.cs" />
+    <Compile Include="Model\Orders\ResponseHeaderMetadata.cs" />
+    <Compile Include="Model\Orders\ResponseMetadata.cs" />
+    <Compile Include="Model\Orders\TaxClassification.cs" />
+    <Compile Include="Model\Orders\TaxCollection.cs" />
+    <Compile Include="Operations\Orders\AmazonOrders.cs" />
+    <Compile Include="Operations\Orders\MarketplaceWebServiceOrders.cs" />
+    <Compile Include="Operations\Orders\MarketplaceWebServiceOrdersClient.cs" />
+    <Compile Include="Operations\Orders\MarketplaceWebServiceOrdersConfig.cs" />
+    <Compile Include="Operations\Orders\MarketplaceWebServiceOrdersException.cs" />
+    <Compile Include="Operations\Orders\MarketplaceWebServiceOrdersSample.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Runtime\AbstractMwsObject.cs" />
+    <Compile Include="Runtime\IMwsCall.cs" />
+    <Compile Include="Runtime\IMwsObject.cs" />
+    <Compile Include="Runtime\IMwsReader.cs" />
+    <Compile Include="Runtime\IMwsRequestType.cs" />
+    <Compile Include="Runtime\IMwsWriter.cs" />
+    <Compile Include="Runtime\MwsAQCall.cs" />
+    <Compile Include="Runtime\MwsConnection.cs" />
+    <Compile Include="Runtime\MwsException.cs" />
+    <Compile Include="Runtime\MwsResponseHeaderMetadata.cs" />
+    <Compile Include="Runtime\MwsResponseMetadata.cs" />
+    <Compile Include="Runtime\MwsUtil.cs" />
+    <Compile Include="Runtime\MwsXmlBuilder.cs" />
+    <Compile Include="Runtime\MwsXmlReader.cs" />
+    <Compile Include="Runtime\MwsXmlWriter.cs" />
+    <Compile Include="Service\OrderService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.GetOrderResponse.xml" />
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.GetServiceStatusResponse.xml" />
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.ListOrderItemsByNextTokenResponse.xml" />
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.ListOrderItemsResponse.xml" />
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.ListOrdersByNextTokenResponse.xml" />
+    <Content Include="Mock\Orders\MarketplaceWebServiceOrders.Model.ListOrdersResponse.xml" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
