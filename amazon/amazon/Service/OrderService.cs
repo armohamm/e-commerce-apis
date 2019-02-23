@@ -11,7 +11,7 @@ namespace amazon.Service
 {
     public class OrderService : OrderInterface
     {
-        AmazonAPI api = new AmazonAPI();
+        Model.AmazonAPI api = new Model.AmazonAPI();
         IMWSResponse response = null;
         ResponseHeaderMetadata rhmd = null;
 

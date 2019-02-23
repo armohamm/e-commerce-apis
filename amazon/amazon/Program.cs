@@ -1,5 +1,7 @@
-﻿using amazon.Model;
+﻿using amazon.Interface;
+using amazon.Model;
 using amazon.Operations.Orders;
+using amazon.Service;
 using MarketplaceWebServiceOrders;
 using MarketplaceWebServiceOrders.Model;
 using System;
@@ -21,6 +23,9 @@ namespace amazon
             //ord.operations.InvokeListOrderItemsByNextToken("next-token-id");
             //ord.operations.InvokeListOrders(DateTime.Now.AddDays(-7), DateTime.Now);
             //ord.operations.InvokeListOrdersByNextToken("next-token-id");
+
+            InventoryInterface inv = new InventoryService();
+            inv.GetMerchantListingsReport();
         }        
     }
 }
