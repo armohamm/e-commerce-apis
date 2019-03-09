@@ -10,7 +10,7 @@ namespace amazon.Operations.Orders
 {
     public class AmazonOrders
     {
-        AmazonAPI api = new AmazonAPI();
+        Model.AmazonAPI api = new Model.AmazonAPI();
         private MarketplaceWebServiceOrdersConfig config = null;
         private MarketplaceWebServiceOrders client = null;
         public OrderService operations = null;

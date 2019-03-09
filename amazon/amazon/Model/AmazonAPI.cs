@@ -31,6 +31,8 @@ namespace amazon.Model
 
         internal string MarketplaceId { get; set; }
 
+        internal string Merchant { get; set; }
+
         public AmazonAPI()
         {
             this.AccessKey = ConfigurationManager.AppSettings["AccessKey"];
@@ -41,6 +43,7 @@ namespace amazon.Model
             this.SellerId = ConfigurationManager.AppSettings["SellerId"];
             this.MWSAuthToken = ConfigurationManager.AppSettings["MWSAuthToken"];
             this.MarketplaceId = ConfigurationManager.AppSettings["MarketplaceId"];
+            this.Merchant = ConfigurationManager.AppSettings["Merchant"];
         }
     }
 }
